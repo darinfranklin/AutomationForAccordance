@@ -1,0 +1,585 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>AMApplicationBuild</key>
+	<string>444.42</string>
+	<key>AMApplicationVersion</key>
+	<string>2.9</string>
+	<key>AMDocumentVersion</key>
+	<string>2</string>
+	<key>actions</key>
+	<array>
+		<dict>
+			<key>action</key>
+			<dict>
+				<key>AMAccepts</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Optional</key>
+					<true/>
+					<key>Types</key>
+					<array>
+						<string>com.apple.applescript.object</string>
+					</array>
+				</dict>
+				<key>AMActionVersion</key>
+				<string>1.0.2</string>
+				<key>AMApplication</key>
+				<array>
+					<string>Automator</string>
+				</array>
+				<key>AMParameterProperties</key>
+				<dict>
+					<key>source</key>
+					<dict/>
+				</dict>
+				<key>AMProvides</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Types</key>
+					<array>
+						<string>com.apple.applescript.object</string>
+					</array>
+				</dict>
+				<key>ActionBundlePath</key>
+				<string>/System/Library/Automator/Run AppleScript.action</string>
+				<key>ActionName</key>
+				<string>Run AppleScript</string>
+				<key>ActionNameComment</key>
+				<string>Save Text Differences File in Accordance</string>
+				<key>ActionParameters</key>
+				<dict>
+					<key>source</key>
+					<string>-- Copyright 2020, Darin Franklin-- https://github.com/darinfranklin/AutomationForAccordanceon run {}	-- Save Text Differences to a temp file.	-- Remove the file first so we are not prompted to replace it.	set filename to "/tmp/accdiff.txt"	-- Set the maximum time (in seconds) we want to wait for Accordance to save the file	set maxDelay to 60	do shell script "rm -f " &amp; filename	tell application "Accordance" to activate	delay 0.5	tell application "System Events" to tell process "Accordance"		tell menu bar 1 to tell menu bar item "Display" to tell menu 1 to tell menu item "List Text Differences" to click		delay 1		tell menu bar 1 to tell menu bar item "File" to tell menu 1 to tell menu item "Save as Text File" to tell menu 1 to tell menu item "Plain Text…" to click		tell window "Save" to tell text field "Save As:"			keystroke filename			keystroke return			delay 1			keystroke return		end tell	end tell	delay 1	waitForFile(filename, maxDelay)end runon waitForFile(filename, sec)	set pollMax to sec	set poll to 0	set waiting to true	repeat while waiting		set poll to poll + 1		tell application "System Events" to set waiting to ((size of file filename) = 0) and poll &lt; pollMax		if waiting then delay 1	end repeatend waitForFile</string>
+				</dict>
+				<key>BundleIdentifier</key>
+				<string>com.apple.Automator.RunScript</string>
+				<key>CFBundleVersion</key>
+				<string>1.0.2</string>
+				<key>CanShowSelectedItemsWhenRun</key>
+				<false/>
+				<key>CanShowWhenRun</key>
+				<true/>
+				<key>Category</key>
+				<array>
+					<string>AMCategoryUtilities</string>
+				</array>
+				<key>Class Name</key>
+				<string>RunScriptAction</string>
+				<key>InputUUID</key>
+				<string>9E0A1944-BDC3-4E55-BA74-CE1C36A898B8</string>
+				<key>Keywords</key>
+				<array>
+					<string>Run</string>
+				</array>
+				<key>OutputUUID</key>
+				<string>B5348A42-B4AB-4B31-8AF9-AC263B5181A9</string>
+				<key>UUID</key>
+				<string>A853C3CC-4F53-4A56-8FA1-961F669CB1F6</string>
+				<key>UnlocalizedApplications</key>
+				<array>
+					<string>Automator</string>
+				</array>
+				<key>arguments</key>
+				<dict>
+					<key>0</key>
+					<dict>
+						<key>default value</key>
+						<string>on run {input, parameters}
+	
+	(* Your script goes here *)
+	
+	return input
+end run</string>
+						<key>name</key>
+						<string>source</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>0</string>
+					</dict>
+				</dict>
+				<key>isViewVisible</key>
+				<true/>
+				<key>location</key>
+				<string>554.000000:368.000000</string>
+				<key>nibPath</key>
+				<string>/System/Library/Automator/Run AppleScript.action/Contents/Resources/Base.lproj/main.nib</string>
+			</dict>
+			<key>isViewVisible</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>action</key>
+			<dict>
+				<key>AMAccepts</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Optional</key>
+					<true/>
+					<key>Types</key>
+					<array>
+						<string>com.apple.cocoa.string</string>
+					</array>
+				</dict>
+				<key>AMActionVersion</key>
+				<string>2.0.3</string>
+				<key>AMApplication</key>
+				<array>
+					<string>Automator</string>
+				</array>
+				<key>AMParameterProperties</key>
+				<dict>
+					<key>COMMAND_STRING</key>
+					<dict/>
+					<key>CheckedForUserDefaultShell</key>
+					<dict/>
+					<key>inputMethod</key>
+					<dict/>
+					<key>shell</key>
+					<dict/>
+					<key>source</key>
+					<dict/>
+				</dict>
+				<key>AMProvides</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Types</key>
+					<array>
+						<string>com.apple.cocoa.string</string>
+					</array>
+				</dict>
+				<key>ActionBundlePath</key>
+				<string>/System/Library/Automator/Run Shell Script.action</string>
+				<key>ActionName</key>
+				<string>Run Shell Script</string>
+				<key>ActionNameComment</key>
+				<string>Write HTML File from Text Differences File</string>
+				<key>ActionParameters</key>
+				<dict>
+					<key>COMMAND_STRING</key>
+					<string># Read the Text Differences file from Accordance and convert to HTML.
+# File &gt; Save as Text File &gt; Plain Text...
+import sys
+import io
+import re
+from urllib import quote
+
+def escapePath(value):
+   return quote(value.encode('utf_8'))
+
+def escapeQuery(value):
+   value = value.replace(' ', '_')
+   return quote(value.encode('utf_8'), ':;,._')
+
+def accordURL(text, verses):
+   return 'accord://read/{}?{}'.format(escapePath(text), escapeQuery(verses))
+
+def consolidate(verses):
+   result = ''
+   curbook = ''
+   curchap = 0
+   for verse in verses.split(';'):
+      verse  = verse.strip()
+      sep = '; '
+      match = re.search('\s*(.*?)\s+(\d*:?\d+)', verse)
+      if match != None:
+         book = match.group(1)
+         ref = match.group(2)
+         match = re.search('(\d+):(\d+)', ref)
+         if match != None:
+            ch = match.group(1)
+            vs = match.group(2)
+         else:
+            ch = 1
+            vs = ref
+         if book == curbook:
+            verse = ref
+            if curchap == ch:
+               sep = ','
+               verse = vs
+            else:
+               curchap = ch
+         else:
+            curbook = book
+            curchap = ch
+      if result != '':
+         result = result + sep
+      result = result + verse
+   return result
+
+def extractTextName(header):
+   m = re.match(r'(.*?)\s*\t(.*?)\t(.*)', header, flags=re.U)
+   return m.group(2) if m != None else ''      
+
+def extractVerses(lines):
+   #lines = re.sub(r'.*\[.*', '', lines, flags=re.U) # remove lines with bracketed text
+   lines = re.sub(r'\s*\t.*', '', lines, flags=re.U) # remove column 2 and 3
+   lines = re.sub(r'\n+', ';', lines, flags=re.U)    # join all with ;
+   lines = re.sub(r'^;|;$', '', lines, flags=re.U)   # remove leading and trailing ;
+   return lines
+
+textName = ''
+allVerses = ''
+
+def tagHeaderLine(m):
+   global allVerses
+   col1 = m.group(1)
+   text1 = m.group(2)
+   text2 = m.group(3)
+   return u'&lt;tr&gt;&lt;th&gt;{}&lt;/th&gt;&lt;th&gt;&lt;a href="{}"&gt;{}&lt;/a&gt;&lt;/th&gt;&lt;th&gt;{}&lt;/th&gt;&lt;/tr&gt;'.format(
+      col1, accordURL(text1, allVerses), text1, text2)
+
+def tagHeader(header, verses):
+   global allVerses
+   allVerses = verses
+   header = re.sub(r'(.*?)\s*\t(.*?)\t(.*)', tagHeaderLine, header, flags=re.U)
+   return header
+
+def tagVerseLine(m):
+   global textName
+   verse = m.group(1)
+   if len(verse) &gt; 0:
+      return u'&lt;tr&gt;&lt;th&gt;&lt;a href="{}"&gt;{}&lt;/a&gt;&lt;/th&gt;&lt;td&gt;{}&lt;/td&gt;&lt;td&gt;{}&lt;/td&gt;&lt;/tr&gt;'.format(
+            accordURL(textName, verse), verse, m.group(2), m.group(3))
+   else:
+      return u'&lt;tr&gt;&lt;th&gt;{}&lt;/th&gt;&lt;td&gt;{}&lt;/td&gt;&lt;td&gt;{}&lt;/td&gt;&lt;/tr&gt;'.format(
+            verse, m.group(2), m.group(3))
+
+def tagVerses(lines, text):
+   global textName
+   textName = text
+   lines = re.sub(r'(.*?)\s*\t(.*?)\t(.*)', tagVerseLine, lines, flags=re.U)
+   return lines
+
+def composeHTML(header, lines, text, verses):
+   htmlHeader = u"""&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+   &lt;head&gt;
+      &lt;meta charset="UTF-8"/&gt;
+      &lt;title&gt;Text Differences&lt;/title&gt;
+      &lt;style&gt;
+         table, th, td {
+            padding: 5px;
+         }
+         th, td {
+            text-align: left;
+            font-size: normal;
+         }
+      &lt;/style&gt;
+   &lt;/head&gt;
+   &lt;body&gt;
+      &lt;table&gt;
+"""
+   htmlTableHeader = tagHeader(header, verses)
+   htmlTableRows = tagVerses(lines, text)
+   htmlFooter = u'&lt;/table&gt;&lt;/body&gt;&lt;/html&gt;'
+   return htmlHeader + htmlTableHeader + htmlTableRows + htmlFooter
+
+# Reads /tmp/accdiff.txt
+# Rewrites the whole file as HTML.
+# Prints the URL: file:///tmp/accdiff.html
+if __name__ == '__main__':
+   fn = sys.argv[1] if len(sys.argv) &gt; 1 else '/tmp/accdiff.txt'
+   fnout = '/tmp/accdiff.html'
+   with io.open(fn, mode='r', encoding='utf_16') as f:
+      header = f.readline()
+      lines = f.read()
+   text = extractTextName(header)
+   verses = consolidate(extractVerses(lines))
+   with io.open(fnout, 'w', encoding='utf_8') as f:
+      f.write(composeHTML(header, lines, text, verses))
+   print('file://{}'.format(fnout))
+</string>
+					<key>CheckedForUserDefaultShell</key>
+					<true/>
+					<key>inputMethod</key>
+					<integer>0</integer>
+					<key>shell</key>
+					<string>/usr/bin/python</string>
+					<key>source</key>
+					<string></string>
+				</dict>
+				<key>BundleIdentifier</key>
+				<string>com.apple.RunShellScript</string>
+				<key>CFBundleVersion</key>
+				<string>2.0.3</string>
+				<key>CanShowSelectedItemsWhenRun</key>
+				<false/>
+				<key>CanShowWhenRun</key>
+				<true/>
+				<key>Category</key>
+				<array>
+					<string>AMCategoryUtilities</string>
+				</array>
+				<key>Class Name</key>
+				<string>RunShellScriptAction</string>
+				<key>IgnoresInput</key>
+				<false/>
+				<key>InputUUID</key>
+				<string>159515E2-E3DE-46A5-AAFB-FCF7F548FA8C</string>
+				<key>Keywords</key>
+				<array>
+					<string>Shell</string>
+					<string>Script</string>
+					<string>Command</string>
+					<string>Run</string>
+					<string>Unix</string>
+				</array>
+				<key>OutputUUID</key>
+				<string>248B5548-5A23-4336-8816-9CED64B236EA</string>
+				<key>UUID</key>
+				<string>9F6C9501-3613-4E9D-AF0A-04986924C122</string>
+				<key>UnlocalizedApplications</key>
+				<array>
+					<string>Automator</string>
+				</array>
+				<key>arguments</key>
+				<dict>
+					<key>0</key>
+					<dict>
+						<key>default value</key>
+						<integer>0</integer>
+						<key>name</key>
+						<string>inputMethod</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>0</string>
+					</dict>
+					<key>1</key>
+					<dict>
+						<key>default value</key>
+						<string></string>
+						<key>name</key>
+						<string>source</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>1</string>
+					</dict>
+					<key>2</key>
+					<dict>
+						<key>default value</key>
+						<false/>
+						<key>name</key>
+						<string>CheckedForUserDefaultShell</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>2</string>
+					</dict>
+					<key>3</key>
+					<dict>
+						<key>default value</key>
+						<string></string>
+						<key>name</key>
+						<string>COMMAND_STRING</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>3</string>
+					</dict>
+					<key>4</key>
+					<dict>
+						<key>default value</key>
+						<string>/bin/sh</string>
+						<key>name</key>
+						<string>shell</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>4</string>
+					</dict>
+				</dict>
+				<key>isViewVisible</key>
+				<true/>
+				<key>location</key>
+				<string>554.000000:550.000000</string>
+				<key>nibPath</key>
+				<string>/System/Library/Automator/Run Shell Script.action/Contents/Resources/Base.lproj/main.nib</string>
+			</dict>
+			<key>isViewVisible</key>
+			<true/>
+		</dict>
+		<dict>
+			<key>action</key>
+			<dict>
+				<key>AMAccepts</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Optional</key>
+					<true/>
+					<key>Types</key>
+					<array>
+						<string>com.apple.applescript.object</string>
+					</array>
+				</dict>
+				<key>AMActionVersion</key>
+				<string>1.0.2</string>
+				<key>AMApplication</key>
+				<array>
+					<string>Automator</string>
+				</array>
+				<key>AMParameterProperties</key>
+				<dict>
+					<key>source</key>
+					<dict/>
+				</dict>
+				<key>AMProvides</key>
+				<dict>
+					<key>Container</key>
+					<string>List</string>
+					<key>Types</key>
+					<array>
+						<string>com.apple.applescript.object</string>
+					</array>
+				</dict>
+				<key>ActionBundlePath</key>
+				<string>/System/Library/Automator/Run AppleScript.action</string>
+				<key>ActionName</key>
+				<string>Run AppleScript</string>
+				<key>ActionNameComment</key>
+				<string>Open URL</string>
+				<key>ActionParameters</key>
+				<dict>
+					<key>source</key>
+					<string>on run {input, parameters}	open location inputend run</string>
+				</dict>
+				<key>BundleIdentifier</key>
+				<string>com.apple.Automator.RunScript</string>
+				<key>CFBundleVersion</key>
+				<string>1.0.2</string>
+				<key>CanShowSelectedItemsWhenRun</key>
+				<false/>
+				<key>CanShowWhenRun</key>
+				<true/>
+				<key>Category</key>
+				<array>
+					<string>AMCategoryUtilities</string>
+				</array>
+				<key>Class Name</key>
+				<string>RunScriptAction</string>
+				<key>InputUUID</key>
+				<string>3B53E685-8F23-492A-8FE1-2E969AC0C7D2</string>
+				<key>Keywords</key>
+				<array>
+					<string>Run</string>
+				</array>
+				<key>OutputUUID</key>
+				<string>ABA0683B-F480-4511-B80C-56D43D57B9B1</string>
+				<key>UUID</key>
+				<string>ABE66709-96F6-42F3-86DD-DFB70BEDA03E</string>
+				<key>UnlocalizedApplications</key>
+				<array>
+					<string>Automator</string>
+				</array>
+				<key>arguments</key>
+				<dict>
+					<key>0</key>
+					<dict>
+						<key>default value</key>
+						<string>on run {input, parameters}
+	
+	(* Your script goes here *)
+	
+	return input
+end run</string>
+						<key>name</key>
+						<string>source</string>
+						<key>required</key>
+						<string>0</string>
+						<key>type</key>
+						<string>0</string>
+						<key>uuid</key>
+						<string>0</string>
+					</dict>
+				</dict>
+				<key>isViewVisible</key>
+				<false/>
+				<key>location</key>
+				<string>554.000000:591.000000</string>
+				<key>nibPath</key>
+				<string>/System/Library/Automator/Run AppleScript.action/Contents/Resources/Base.lproj/main.nib</string>
+			</dict>
+			<key>isViewVisible</key>
+			<false/>
+		</dict>
+	</array>
+	<key>connectors</key>
+	<dict>
+		<key>203BA0D9-F5A3-44AE-A478-DA6F9A74F068</key>
+		<dict>
+			<key>from</key>
+			<string>9F6C9501-3613-4E9D-AF0A-04986924C122 - 9F6C9501-3613-4E9D-AF0A-04986924C122</string>
+			<key>to</key>
+			<string>ABE66709-96F6-42F3-86DD-DFB70BEDA03E - ABE66709-96F6-42F3-86DD-DFB70BEDA03E</string>
+		</dict>
+		<key>949D57C6-0CB3-469D-97D6-562CA61DFFA1</key>
+		<dict>
+			<key>from</key>
+			<string>A853C3CC-4F53-4A56-8FA1-961F669CB1F6 - A853C3CC-4F53-4A56-8FA1-961F669CB1F6</string>
+			<key>to</key>
+			<string>9F6C9501-3613-4E9D-AF0A-04986924C122 - 9F6C9501-3613-4E9D-AF0A-04986924C122</string>
+		</dict>
+	</dict>
+	<key>workflowMetaData</key>
+	<dict>
+		<key>applicationBundleID</key>
+		<string>com.OakTree.Accordance</string>
+		<key>applicationBundleIDsByPath</key>
+		<dict>
+			<key>/Applications/Accordance.app</key>
+			<string>com.OakTree.Accordance</string>
+		</dict>
+		<key>applicationPath</key>
+		<string>/Applications/Accordance.app</string>
+		<key>applicationPaths</key>
+		<array>
+			<string>/Applications/Accordance.app</string>
+		</array>
+		<key>inputTypeIdentifier</key>
+		<string>com.apple.Automator.nothing</string>
+		<key>outputTypeIdentifier</key>
+		<string>com.apple.Automator.nothing</string>
+		<key>presentationMode</key>
+		<integer>11</integer>
+		<key>processesInput</key>
+		<integer>0</integer>
+		<key>serviceApplicationBundleID</key>
+		<string>com.OakTree.Accordance</string>
+		<key>serviceApplicationPath</key>
+		<string>/Applications/Accordance.app</string>
+		<key>serviceInputTypeIdentifier</key>
+		<string>com.apple.Automator.nothing</string>
+		<key>serviceOutputTypeIdentifier</key>
+		<string>com.apple.Automator.nothing</string>
+		<key>serviceProcessesInput</key>
+		<integer>0</integer>
+		<key>systemImageName</key>
+		<string>NSActionTemplate</string>
+		<key>useAutomaticInputType</key>
+		<integer>0</integer>
+		<key>workflowTypeIdentifier</key>
+		<string>com.apple.Automator.servicesMenu</string>
+	</dict>
+</dict>
+</plist>
