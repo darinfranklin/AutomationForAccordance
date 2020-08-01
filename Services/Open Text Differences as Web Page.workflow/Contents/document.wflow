@@ -53,7 +53,7 @@
 				<key>ActionParameters</key>
 				<dict>
 					<key>source</key>
-					<string>-- Copyright 2020, Darin Franklin-- https://github.com/darinfranklin/AutomationForAccordanceon run {}	-- Save Text Differences to a temp file.	-- Remove the file first so we are not prompted to replace it.	set filename to "/tmp/accdiff.txt"	-- Set the maximum time (in seconds) we want to wait for Accordance to save the file	set maxDelay to 60	do shell script "rm -f " &amp; filename	tell application "Accordance" to activate	delay 0.5	tell application "System Events" to tell process "Accordance"		tell menu bar 1 to tell menu bar item "Display" to tell menu 1 to tell menu item "List Text Differences" to click		delay 1		tell menu bar 1 to tell menu bar item "File" to tell menu 1 to tell menu item "Save as Text File" to tell menu 1 to tell menu item "Plain Text…" to click		tell window "Save" to tell text field "Save As:"			keystroke filename			keystroke return			delay 1			keystroke return		end tell	end tell	delay 1	waitForFile(filename, maxDelay)end runon waitForFile(filename, sec)	set pollMax to sec	set poll to 0	set waiting to true	repeat while waiting		set poll to poll + 1		tell application "System Events" to set waiting to ((size of file filename) = 0) and poll &lt; pollMax		if waiting then delay 1	end repeatend waitForFile</string>
+					<string>-- Copyright 2020, Darin Franklin-- https://github.com/darinfranklin/AutomationForAccordanceglobal mDisplay, mListTextDifferences, mFile, mSaveAsTextFile, mPlainText, mSave, mSaveAson run {}	-- Save Text Differences to a temp file.	-- Remove the file first so we are not prompted to replace it.	set filename to "/tmp/accdiff.txt"	-- Set the maximum time (in seconds) we want to wait for Accordance to save the file	set maxDelay to 60	do shell script "rm -f " &amp; filename	setMenuNames()	tell application "Accordance" to activate	delay 0.5	tell application "System Events" to tell process "Accordance"		tell menu bar 1 to tell menu bar item mDisplay to tell menu 1 to tell menu item mListTextDifferences to click		delay 1		tell menu bar 1 to tell menu bar item mFile to tell menu 1 to tell menu item mSaveAsTextFile to tell menu 1 to tell menu item mPlainText to click		tell window mSave to tell text field mSaveAs			keystroke filename			keystroke return			delay 1			keystroke return		end tell	end tell	delay 1	waitForFile(filename, maxDelay)end runon setMenuNames()	set lang to (characters 1 through 2 of user locale of (system info)) as text	if (lang = "en") then		set mDisplay to "Display"		set mListTextDifferences to "List Text Differences"		set mFile to "File"		set mSaveAsTextFile to "Save as Text File"		set mPlainText to "Plain Text…"		set mSave to "Save"		set mSaveAs to "Save As:"	else if (lang = "de") then		set mDisplay to "Darstellung"		set mListTextDifferences to "Unterschiede auflisten"		set mFile to "Ablage"		set mSaveAsTextFile to "Als Textdatei sichern"		set mPlainText to "Reiner Text…"		set mSave to "Sichern"		set mSaveAs to "Sichern als:"	else if (lang = "es") then		set mDisplay to "Visualizacin"		set mListTextDifferences to "Mostrar diferencias en los textos"		set mFile to "Archivo"		set mSaveAsTextFile to "Guardar como archivo de texto"		set mPlainText to "Texto sin formato…"		set mSave to "Guardar"		set mSaveAs to "Guardar como:"	else		-- Try by number, but the Display menu has extra items for "de" and "es". Other languages might also.		set mDisplay to 6		--set mListTextDifferences to 11		set mListTextDifferences to 8		set mFile to 3		set mSaveAsTextFile to 20		set mPlainText to 1		set mSave to 1		set mSaveAs to 1	end if	end setMenuNameson waitForFile(filename, sec)	set pollMax to sec	set poll to 0	set waiting to true	repeat while waiting		set poll to poll + 1		tell application "System Events" to set waiting to ((size of file filename) = 0) and poll &lt; pollMax		if waiting then delay 1	end repeatend waitForFile</string>
 				</dict>
 				<key>BundleIdentifier</key>
 				<string>com.apple.Automator.RunScript</string>
@@ -107,7 +107,7 @@ end run</string>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>546.500000:368.000000</string>
+				<string>554.000000:368.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run AppleScript.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -420,7 +420,7 @@ if __name__ == '__main__':
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>546.500000:908.000000</string>
+				<string>554.000000:550.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run Shell Script.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -524,7 +524,7 @@ end run</string>
 				<key>isViewVisible</key>
 				<false/>
 				<key>location</key>
-				<string>546.500000:949.000000</string>
+				<string>554.000000:591.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run AppleScript.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -534,19 +534,19 @@ end run</string>
 	</array>
 	<key>connectors</key>
 	<dict>
-		<key>9965959F-9943-4C87-B3A4-294E81A5EB58</key>
-		<dict>
-			<key>from</key>
-			<string>A853C3CC-4F53-4A56-8FA1-961F669CB1F6 - A853C3CC-4F53-4A56-8FA1-961F669CB1F6</string>
-			<key>to</key>
-			<string>9F6C9501-3613-4E9D-AF0A-04986924C122 - 9F6C9501-3613-4E9D-AF0A-04986924C122</string>
-		</dict>
-		<key>FC35D52C-E7FA-4CE2-B2C4-7B1E0BE1114A</key>
+		<key>B0EF8DA8-2BAC-481F-9609-306AACD69871</key>
 		<dict>
 			<key>from</key>
 			<string>9F6C9501-3613-4E9D-AF0A-04986924C122 - 9F6C9501-3613-4E9D-AF0A-04986924C122</string>
 			<key>to</key>
 			<string>ABE66709-96F6-42F3-86DD-DFB70BEDA03E - ABE66709-96F6-42F3-86DD-DFB70BEDA03E</string>
+		</dict>
+		<key>EF1F03EC-C673-476B-9E89-DF2BBF43B040</key>
+		<dict>
+			<key>from</key>
+			<string>A853C3CC-4F53-4A56-8FA1-961F669CB1F6 - A853C3CC-4F53-4A56-8FA1-961F669CB1F6</string>
+			<key>to</key>
+			<string>9F6C9501-3613-4E9D-AF0A-04986924C122 - 9F6C9501-3613-4E9D-AF0A-04986924C122</string>
 		</dict>
 	</dict>
 	<key>workflowMetaData</key>

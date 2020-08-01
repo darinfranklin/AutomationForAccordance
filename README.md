@@ -50,36 +50,6 @@ Sometimes you will find Bible verses in a PDF or web page which use Roman numera
 It changes the search to: 1Chron 1:13; 2Chron 4:19
 
 
-# Troubleshooting
-
-## Open Text Differences
-
-### Menu Language
-
-The AppleScript part expects the menus to be in English.  If your system is in another language, you can edit the workflow code to change the names. Right click on the workflow and open with Automator.  Look in the first AppleScript box and change these names: "Display", "List Text Differences", "File", "Save as Text File", "Plain Text…", "Save", and "Save As:".
-
-#### English
-
-```
-		tell menu bar 1 to tell menu bar item "Display" to tell menu 1 to tell menu item "List Text Differences" to click
-		delay 1
-		tell menu bar 1 to tell menu bar item "File" to tell menu 1 to tell menu item "Save as Text File" to tell menu 1 to tell menu item "Plain Text…" to click
-		tell window "Save" to tell text field "Save As:"
-```
-
-#### German (see de.lproj)
-
-```
-		tell menu bar 1 to tell menu bar item "Darstellung" to tell menu 1 to tell menu item "Unterschiede auflisten" to click
-		delay 1
-		tell menu bar 1 to tell menu bar item "Ablage" to tell menu 1 to tell menu item "Als Textdatei sichern" to tell menu 1 to tell menu item "Reiner Text…" to click
-		tell window "Sichern" to tell text field "Sichern als:"
-```
-
-The item names for other languages can be found in these files.
-/Applications/Accordance.app/Contents/Resources/*.lproj/Menus.strings
-
-
 # Implementation
 
 The scripts are written in Python, with some AppleScript to control Accordance.
