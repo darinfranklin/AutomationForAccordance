@@ -47,7 +47,7 @@ def composeHTML(header, lines, text, verses):
       <title>Text Differences</title>
       <style>
          table, th, td {
-            padding: 5px;
+            padding-right: 1em;
          }
          th, td {
             text-align: left;
@@ -59,7 +59,7 @@ def composeHTML(header, lines, text, verses):
          }
          td {
             font-size: larger;
-            font-family: Accordance, Times New Roman, serif;
+            font-family: Accordance, "Times New Roman", serif;
          }
       </style>
    </head>

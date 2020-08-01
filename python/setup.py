@@ -3,7 +3,7 @@
 from distutils.core import setup
 
 setup(name='autoaccord',
-      version='1.0.0',
+      version='1.0.1',
       description='Automation for Accordance',
       author='Darin Franklin',
       author_email='dfranklin@pobox.com',

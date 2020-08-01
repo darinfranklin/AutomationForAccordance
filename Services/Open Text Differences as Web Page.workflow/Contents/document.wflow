@@ -107,7 +107,7 @@ end run</string>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>554.000000:368.000000</string>
+				<string>546.500000:368.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run AppleScript.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -267,11 +267,19 @@ def composeHTML(header, lines, text, verses):
       &lt;title&gt;Text Differences&lt;/title&gt;
       &lt;style&gt;
          table, th, td {
-            padding: 5px;
+            padding-right: 1em;
          }
          th, td {
             text-align: left;
-            font-size: normal;
+         }
+         th {
+            font-size: smaller;
+            font-family: sans-serif;
+            white-space: nowrap;
+         }
+         td {
+            font-size: larger;
+            font-family: Accordance, "Times New Roman", serif;
          }
       &lt;/style&gt;
    &lt;/head&gt;
@@ -412,7 +420,7 @@ if __name__ == '__main__':
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>554.000000:550.000000</string>
+				<string>546.500000:908.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run Shell Script.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -516,7 +524,7 @@ end run</string>
 				<key>isViewVisible</key>
 				<false/>
 				<key>location</key>
-				<string>554.000000:591.000000</string>
+				<string>546.500000:949.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run AppleScript.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -526,19 +534,19 @@ end run</string>
 	</array>
 	<key>connectors</key>
 	<dict>
-		<key>203BA0D9-F5A3-44AE-A478-DA6F9A74F068</key>
-		<dict>
-			<key>from</key>
-			<string>9F6C9501-3613-4E9D-AF0A-04986924C122 - 9F6C9501-3613-4E9D-AF0A-04986924C122</string>
-			<key>to</key>
-			<string>ABE66709-96F6-42F3-86DD-DFB70BEDA03E - ABE66709-96F6-42F3-86DD-DFB70BEDA03E</string>
-		</dict>
-		<key>949D57C6-0CB3-469D-97D6-562CA61DFFA1</key>
+		<key>9965959F-9943-4C87-B3A4-294E81A5EB58</key>
 		<dict>
 			<key>from</key>
 			<string>A853C3CC-4F53-4A56-8FA1-961F669CB1F6 - A853C3CC-4F53-4A56-8FA1-961F669CB1F6</string>
 			<key>to</key>
 			<string>9F6C9501-3613-4E9D-AF0A-04986924C122 - 9F6C9501-3613-4E9D-AF0A-04986924C122</string>
+		</dict>
+		<key>FC35D52C-E7FA-4CE2-B2C4-7B1E0BE1114A</key>
+		<dict>
+			<key>from</key>
+			<string>9F6C9501-3613-4E9D-AF0A-04986924C122 - 9F6C9501-3613-4E9D-AF0A-04986924C122</string>
+			<key>to</key>
+			<string>ABE66709-96F6-42F3-86DD-DFB70BEDA03E - ABE66709-96F6-42F3-86DD-DFB70BEDA03E</string>
 		</dict>
 	</dict>
 	<key>workflowMetaData</key>
