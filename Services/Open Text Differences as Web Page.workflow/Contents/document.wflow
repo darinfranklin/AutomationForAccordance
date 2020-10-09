@@ -107,7 +107,7 @@ end run</string>
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>554.000000:368.000000</string>
+				<string>546.500000:449.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run AppleScript.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -420,7 +420,7 @@ if __name__ == '__main__':
 				<key>isViewVisible</key>
 				<true/>
 				<key>location</key>
-				<string>554.000000:550.000000</string>
+				<string>546.500000:693.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run Shell Script.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
@@ -466,11 +466,11 @@ if __name__ == '__main__':
 				<key>ActionName</key>
 				<string>Run AppleScript</string>
 				<key>ActionNameComment</key>
-				<string>Open URL</string>
+				<string>Open URL in Accordance</string>
 				<key>ActionParameters</key>
 				<dict>
 					<key>source</key>
-					<string>on run {input, parameters}	open location inputend run</string>
+					<string>on run {input, parameters}	set loc to input	tell application "Accordance"		activate		tell application "System Events" to tell process "Accordance"			set mFile to 3 -- "File"			set mNewTab to 1 -- "New Tab"			set mWebBrowser to 39 -- "Web Browser"			tell menu bar 1 to tell menu bar item mFile to tell menu 1 to tell menu item mNewTab to tell menu 1 to tell menu item mWebBrowser to click			key down command			delay 0.3			keystroke "l"			delay 0.3			key up command			delay 0.3			keystroke loc			keystroke return		end tell	end tellend run</string>
 				</dict>
 				<key>BundleIdentifier</key>
 				<string>com.apple.Automator.RunScript</string>
@@ -522,31 +522,31 @@ end run</string>
 					</dict>
 				</dict>
 				<key>isViewVisible</key>
-				<false/>
+				<true/>
 				<key>location</key>
-				<string>554.000000:591.000000</string>
+				<string>546.500000:1108.000000</string>
 				<key>nibPath</key>
 				<string>/System/Library/Automator/Run AppleScript.action/Contents/Resources/Base.lproj/main.nib</string>
 			</dict>
 			<key>isViewVisible</key>
-			<false/>
+			<true/>
 		</dict>
 	</array>
 	<key>connectors</key>
 	<dict>
-		<key>B0EF8DA8-2BAC-481F-9609-306AACD69871</key>
-		<dict>
-			<key>from</key>
-			<string>9F6C9501-3613-4E9D-AF0A-04986924C122 - 9F6C9501-3613-4E9D-AF0A-04986924C122</string>
-			<key>to</key>
-			<string>ABE66709-96F6-42F3-86DD-DFB70BEDA03E - ABE66709-96F6-42F3-86DD-DFB70BEDA03E</string>
-		</dict>
-		<key>EF1F03EC-C673-476B-9E89-DF2BBF43B040</key>
+		<key>BE849947-434D-403A-A8D7-9FBC782E29BC</key>
 		<dict>
 			<key>from</key>
 			<string>A853C3CC-4F53-4A56-8FA1-961F669CB1F6 - A853C3CC-4F53-4A56-8FA1-961F669CB1F6</string>
 			<key>to</key>
 			<string>9F6C9501-3613-4E9D-AF0A-04986924C122 - 9F6C9501-3613-4E9D-AF0A-04986924C122</string>
+		</dict>
+		<key>FE5657BE-BBBF-458E-9300-1A7F6F56B747</key>
+		<dict>
+			<key>from</key>
+			<string>9F6C9501-3613-4E9D-AF0A-04986924C122 - 9F6C9501-3613-4E9D-AF0A-04986924C122</string>
+			<key>to</key>
+			<string>ABE66709-96F6-42F3-86DD-DFB70BEDA03E - ABE66709-96F6-42F3-86DD-DFB70BEDA03E</string>
 		</dict>
 	</dict>
 	<key>workflowMetaData</key>

@@ -36,7 +36,9 @@ This service opens a Text Differences tab, saves it, reads it, and then opens th
 
 Do the same steps as above, but choose Accordance > Services > Open Text Differences as Web Page.
 
-It creates an HTML file and opens it in the default web browser.  To view this file in Accordance, you have to copy and paste the URL into the Accordance web browser tab (File > New Tab > Web Browser).  There is currently no way for the script to open it directly in Accordance, but I will add that feature if Accordance ever gets a keyboard shortcut to select the URL bar (Cmd-L, perhaps).
+It creates an HTML file and opens it in the Accordance web browser.  This requires Accordance 13.1.4 or later.
+
+If you then click on the first column header, it will open all of the verses as a search, which is the same result as the Open Text Differences as Search workflow.
 
 
 ## Normalize Verse Search
